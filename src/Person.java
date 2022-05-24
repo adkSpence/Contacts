@@ -20,7 +20,9 @@ public class Person implements PhoneInterface {
     }
 
     public void searchContact(String contact_name) {
-
+        if(contactList.containsKey(contact_name)) {
+            System.out.println("Contact number for " + contact_name + " is " + contactList.get(contact_name));
+        }
     }
 
     public void displayAllContact() {

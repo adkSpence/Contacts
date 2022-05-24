@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -60,7 +59,7 @@ public class Main {
         else if (response == 3) {
             System.out.println("Enter name of your contact you want to Search:");
             System.out.print(">>> ");
-
+            input.nextLine();
             contact_name = input.nextLine();
 
             contact.searchContact(contact_name);
