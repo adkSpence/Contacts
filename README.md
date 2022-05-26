@@ -7,3 +7,4 @@ MVP:
 2. Create, Search and Delete contacts
 3. Display all text messages
 4. Compose a new message
+5. Make a phone call from contacts
