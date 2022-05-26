@@ -4,9 +4,9 @@ public class Main {
 
     static Scanner input = new Scanner(System.in);
     static int response;
+    static String username;
 
     public static void main(String[] args) {
-        String username;
         System.out.println("Welcome! Enter your name");
         System.out.print(">>> ");
         username = input.nextLine();
@@ -19,7 +19,8 @@ public class Main {
             System.out.println("""
                     1. Manage contacts
                     2. Messages
-                    3. Quit
+                    3. Make a phone call
+                    4. Quit
                     """);
             System.out.print(">>> ");
             response = input.nextInt();
@@ -31,6 +32,18 @@ public class Main {
                 displaySecondMenu();
             }
             else if (response == 3) {
+                String contact_name;
+
+                PhoneInterface callInterface = new Person();
+
+                System.out.println("Enter name of your contact you want to Search:");
+                System.out.print(">>> ");
+                input.nextLine();
+                contact_name = input.nextLine();
+
+                callInterface.callContact(contact_name);
+            }
+            else if (response == 4) {
                 System.out.println("Thank you for using our system " + username);
             }
     }
@@ -62,7 +75,7 @@ public class Main {
             input.nextLine();
             contact_name = input.nextLine();
 
-            contact.searchContact(contact_name);
+            System.out.println("Phone number for " + contact_name + " is " + contact.searchContact(contact_name));
         }
         else if (response == 4) {
             System.out.println("Enter name of your contact you want to Delete:");
@@ -71,6 +84,9 @@ public class Main {
             contact_name = input.nextLine();
 
             contact.deleteContact(contact_name);
+        }
+        else if (response == 5) {
+            displayWelcomeMessage(username);
         }
     }
 

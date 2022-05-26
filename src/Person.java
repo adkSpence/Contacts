@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Person implements PhoneInterface {
 
-    static HashMap<String, Long> contactList = new HashMap<>();
+    static Map<String, Long> contactList = new HashMap<>();
     static Long phone_number;
     static String contact_name;
     static Scanner input = new Scanner(System.in);
@@ -16,13 +16,17 @@ public class Person implements PhoneInterface {
 
     @Override
     public void callContact(String contact_name) {
-
+        long number = searchContact(contact_name);
+        System.out.println("Calling " + contact_name + " on " + number);
     }
 
-    public void searchContact(String contact_name) {
+    public long searchContact(String contact_name) {
+        long phone_number = 0;
+
         if(contactList.containsKey(contact_name)) {
-            System.out.println("Contact number for " + contact_name + " is " + contactList.get(contact_name));
+            phone_number = contactList.get(contact_name);
         }
+        return phone_number;
     }
 
     public void displayAllContact() {
@@ -56,9 +60,6 @@ public class Person implements PhoneInterface {
             }
             else if (response == 2) {
                 finish = true;
-                System.out.println("Thank you for using the system");
-            }
-            else if (response == 3) {
                 Main.displayFirstMenu();
             }
 
