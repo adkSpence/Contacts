@@ -81,14 +81,13 @@ public class Main {
             displayFirstMenu();
         }
         else if (response == 4) {
-            System.out.println("Enter the name of contact you want to Delete ");
-            String name = input.nextLine();
+            System.out.println("\nEnter name of your contact you want to Delete:");
+            System.out.print(">>> ");
 
             input.nextLine();
+            contact_name = input.nextLine();
 
-            System.out.println(name);
-
-            //contact.deleteContact(name);
+            contact.deleteContact(contact_name);
         }
         else if (response == 5) {
             displayWelcomeMessage(username);
